@@ -1,5 +1,5 @@
 package foo
 
 func Name() string {
-	return "Foo"
+	return "Foo.1"
 }
