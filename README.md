@@ -57,6 +57,7 @@ pattern ./...: directory prefix . does not contain modules listed in go.work or 
 
 ## Issues I came across
 
+### Submodule in Monorepo
 * Atomic changes involing multiple submodules is not easy...
    - You will have to add `replace` directive manually
    - You will need to commit dependency's changes first
@@ -65,7 +66,11 @@ pattern ./...: directory prefix . does not contain modules listed in go.work or 
    - Commit the change, then tag a new version (e.g. `tag bar/v0.0.2`)
 * `replace` is meant to be fore development purpose. (Parent module ignores the dependency's `replace` directive)
    - See https://go.dev/ref/mod#go-mod-file-replace
+
+### Workspace in Monorepo
 * Even using go-workspace, `go test ./...` does not work
+* `go test -v ./bar` works, but it ignores the version specified by `require` directive in ./bar/go.mod (this feels like a bug in go-workspaces)
+
 
 
 ## References
