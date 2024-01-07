@@ -58,19 +58,18 @@ pattern ./...: directory prefix . does not contain modules listed in go.work or 
 ## Issues I came across
 
 ### Submodule in Monorepo
-* Atomic changes involing multiple submodules is not easy...
-   - You will have to add `replace` directive manually
-   - You will need to commit dependency's changes first
-   - Then tag new version with the commit (e.g. `tag foo/v0.0.2`)
-   - Then change the code that imports the updated dependency
-   - Commit the change, then tag a new version (e.g. `tag bar/v0.0.2`)
-* `replace` is meant to be fore development purpose. (Parent module ignores the dependency's `replace` directive)
-   - See https://go.dev/ref/mod#go-mod-file-replace
+* Making atomic changes involving multiple submodules is challenging:
+   - Manual addition of `replace` directives is required.
+   - Dependencies' changes must be committed first.
+   - New versions need to be tagged with the commit (e.g., `tag foo/v0.0.2`).
+   - The code that imports the updated dependency must then be changed.
+   - After committing this change, tag a new version (e.g., `tag bar/v0.0.2`).
+* The `replace` directive is intended for development purposes. (The parent module ignores the dependency's `replace` directive.)
+   - See https://go.dev/ref/mod#go-mod-file-replace for more details.
 
 ### Workspace in Monorepo
-* Even using go-workspace, `go test ./...` does not work
-* `go test -v ./bar` works, but it ignores the version specified by `require` directive in ./bar/go.mod (this feels like a bug in go-workspaces)
-
+* Even when using go-workspace, `go test ./...` does not work as expected.
+* `go test -v ./bar` works, but it ignores the version specified by the `require` directive in `./bar/go.mod` (this seems like a potential bug in go-workspaces).
 
 
 ## References
