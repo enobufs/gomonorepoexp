@@ -78,3 +78,4 @@ pattern ./...: directory prefix . does not contain modules listed in go.work or 
 * [Building a Monorepo in Golang](https://earthly.dev/blog/golang-monorepo)
 * [Golang Workspaces](https://earthly.dev/blog/go-workspaces/)
 * [Go Workspaces: Simplifying Multi-Modular Projects](https://bysabbir.medium.com/go-workspaces-simplifying-multi-modular-projects-dc1a489302a)
+* [go.mod, go.work, go.crazy](https://www.reddit.com/r/golang/comments/17yzz0j/gomod_gowork_gocrazy/)
